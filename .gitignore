@@ -1,0 +1,16 @@
+*~
+*.swp
+*.log
+*.pyc
+.cache/
+.coverage
+.idea/
+.vscode/
+build/
+dist/
+docs/build/
+venv/
+wheelhouse/
+*.eggs
+*.egg-info/
+.mypy_cache/
