@@ -15,6 +15,7 @@ MUST_BE_SET["CONFIG_RANDOMIZE_BASE"] = "KASLR is required as a basic security ha
 MUST_BE_SET["CONFIG_RANDOMIZE_MEMORY"] = "KASLR is required as a basic security hardening"
 MUST_BE_SET["CONFIG_STRICT_KERNEL_RWX"] = "NX is important for buffer overflow exploit hardening"
 MUST_BE_SET["CONFIG_CC_STACKPROTECTOR"] = "Stack Protector is for buffer overflow detection and hardening"
+MUST_BE_SET["CONFIG_STACKPROTECTOR"] = "Stack Protector is for buffer overflow detection and hardening"
 
 MUST_BE_UNSET["CONFIG_DEVMEM"] = "/dev/mem is dangerous and has no legitimate users anymore"
 MUST_BE_SET["CONFIG_STRICT_DEVMEM"] = "/dev/mem is dangerous and access must be strictly limited"
