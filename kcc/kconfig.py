@@ -23,6 +23,7 @@ class Kconfig(object):
     Y_MUST_N = "is set but is required to be not set (%s)"
     M_MUST_Y = "is set as =m but is required to be set to y (%s)"
     M_MUST_N = "is set as =m but is required to be not set (%s)"
+    MISSING_MUST_BE_SET  = "\nIs not in config file and must be set:"
 
     def __init__(self, *,
             must_be_set: Dict[str, str] = {},
@@ -40,12 +41,26 @@ class Kconfig(object):
 
     def check(self, stream: Iterable[str]) -> Dict[str, str]:
         results: Dict[str, str] = {}
+        missing = []
+        missing_key_mbs = list(self.must_be_set.keys())
+        missing_key_mbsom = list(self.must_be_set_or_module.keys())
+
         for line in stream:
+            line = line.strip()
             results.update(self.check_line(line))
-        return results
+            line = line.lstrip("#").rstrip("=y").lstrip(" ").rstrip(" is not set").rstrip(" ")
+            for mbs_key in missing_key_mbs:
+                if mbs_key == line:
+                    missing_key_mbs.remove(mbs_key)
+            for mbsom_key in missing_key_mbsom:
+                if mbsom_key == line:
+                    missing_key_mbsom.remove(mbsom_key)
+
+        missing =  missing_key_mbs + missing_key_mbsom
+        missing.insert(0,self.MISSING_MUST_BE_SET)
+        return results, missing
 
     def check_line(self, line: str) -> Dict[str, str]:
-        line = line.strip()
         match = re.search("^# (CONFIG_.*) is not set", line)
         if match:
             notset = match.group(1)
