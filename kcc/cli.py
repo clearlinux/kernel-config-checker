@@ -22,8 +22,12 @@ def run(*,
         must_be_set.update(MUST_BE_SET)
         must_be_set_or_module.update(MUST_BE_SET_OR_MODULE)
         must_be_unset.update(MUST_BE_UNSET)
+        kconfig = Kconfig(must_be_set=must_be_set,
+            must_be_set_or_module=must_be_set_or_module,
+            must_be_unset=must_be_unset)
+    else:
+        kconfig = Kconfig.default()
 
-    kconfig = Kconfig.default()
     results = kconfig.check(config_file)
     if not results:
         return
