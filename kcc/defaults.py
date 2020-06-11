@@ -18,8 +18,6 @@ MUST_BE_SET["CONFIG_CC_STACKPROTECTOR"] = "Stack Protector is for buffer overflo
 MUST_BE_SET["CONFIG_STACKPROTECTOR"] = "Stack Protector is for buffer overflow detection and hardening"
 
 MUST_BE_UNSET["CONFIG_DEVMEM"] = "/dev/mem is dangerous and has no legitimate users anymore"
-MUST_BE_SET["CONFIG_STRICT_DEVMEM"] = "/dev/mem is dangerous and access must be strictly limited"
-MUST_BE_SET["CONFIG_IO_STRICT_DEVMEM"] = "/dev/mem is dangerous and access must be strictly limited"
 
 MUST_BE_SET["CONFIG_DEBUG_CREDENTIALS"] = "Needed to protect against targeted corruption by rootkits"
 MUST_BE_SET["CONFIG_DEBUG_NOTIFIERS"] = "Needed to protect against targeted corruption by rootkits"
