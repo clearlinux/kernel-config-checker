@@ -1,7 +1,7 @@
 Kernel Config Checker (kcc)
 ===========================
 
-**STOP** (*hammer time*) **this project hasn't been maintained as well as we'd like. We've archived it in favor of [Alexander Popov's](https://github.com/a13xp0p0v) https://github.com/a13xp0p0v/kconfig-hardened-check. More info here: https://linuxplumbersconf.org/event/7/contributions/775/**
+**STOP** (*hammer time*) **this project hasn't been maintained as well as we'd like. We've archived it in favor of** `Alexander Popov's <https://github.com/a13xp0p0v>`_  **https://github.com/a13xp0p0v/kconfig-hardened-check. More info here: https://linuxplumbersconf.org/event/7/contributions/775/**
 
 ::
 
